@@ -11,10 +11,15 @@
 
   <body>
 
-    <--! for devise notifications -->
+    <!- for devise notifications -->
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     
+    <% if user_signed_in?%>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Sign in with LinkedIn", user_linkedin_omniauth_authorize_path %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
