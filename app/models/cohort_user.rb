@@ -1,0 +1,2 @@
+class CohortUser < ApplicationRecord
+end
