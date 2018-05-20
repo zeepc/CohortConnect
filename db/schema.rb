@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_19_173654) do
+ActiveRecord::Schema.define(version: 2018_05_20_145039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,19 @@ ActiveRecord::Schema.define(version: 2018_05_19_173654) do
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "group_invitations", force: :cascade do |t|
+    t.integer "sent_by_id"
+    t.integer "user_id"
+    t.integer "group_id"
+    t.boolean "accepted?", default: false
+    t.boolean "admin_approved?", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["accepted?"], name: "index_group_invitations_on_accepted?"
+    t.index ["admin_approved?"], name: "index_group_invitations_on_admin_approved?"
+    t.index ["group_id"], name: "index_group_invitations_on_group_id"
   end
 
   create_table "users", force: :cascade do |t|

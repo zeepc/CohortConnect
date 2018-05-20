@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sent by:</strong>
+  <%= @group_invitation.sent_by_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @group_invitation.user_id %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @group_invitation.group_id %>
+</p>
+
+<p>
+  <strong>Accepted?:</strong>
+  <%= @group_invitation.accepted? %>
+</p>
+
+<p>
+  <strong>Admin approved?:</strong>
+  <%= @group_invitation.admin_approved? %>
+</p>
+
+<%= link_to 'Edit', edit_group_invitation_path(@group_invitation) %> |
+<%= link_to 'Back', group_invitations_path %>
