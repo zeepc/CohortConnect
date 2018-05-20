@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 2018_05_20_145039) do
 
   create_table "group_invitations", force: :cascade do |t|
     t.integer "sent_by_id"
-    t.integer "user_id"
-    t.integer "group_id"
+    t.integer "user_id", null: false
+    t.integer "group_id", null: false
     t.boolean "accepted?", default: false
     t.boolean "admin_approved?", default: false
     t.datetime "created_at", null: false

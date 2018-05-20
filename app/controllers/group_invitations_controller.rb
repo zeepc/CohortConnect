@@ -1,5 +1,6 @@
 class GroupInvitationsController < ApplicationController
   before_action :set_group_invitation, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /group_invitations
   # GET /group_invitations.json
@@ -24,16 +25,22 @@ class GroupInvitationsController < ApplicationController
   # POST /group_invitations
   # POST /group_invitations.json
   def create
-    @group_invitation = GroupInvitation.new(group_invitation_params)
+    if user_signed_in?
+      @group_invitation = GroupInvitation.new(group_invitation_params)
+      user_role = CohortUser.where(cohort_id: group_invitation_params[:group_id], user_id: current_user.id)[0].user_role
+      field_to_update = user_role == "student" ? :accepted? : :admin_approved?
 
-    respond_to do |format|
-      if @group_invitation.save
-        format.html { redirect_to @group_invitation, notice: 'Group invitation was successfully created.' }
-        format.json { render :show, status: :created, location: @group_invitation }
-      else
-        format.html { render :new }
-        format.json { render json: @group_invitation.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @group_invitation.update(field_to_update => true)
+          format.html { redirect_to @group_invitation, notice: 'Group invitation was successfully created.' }
+          format.json { render :show, status: :created, location: @group_invitation }
+        else
+          format.html { render :new }
+          format.json { render json: @group_invitation.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to "/"
     end
   end
 
@@ -69,6 +76,6 @@ class GroupInvitationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_invitation_params
-      params.require(:group_invitation).permit(:sent_by_id, :user_id, :group_id, :accepted?, :admin_approved?)
+      params.require(:group_invitation).permit(:sent_by_id, :user_id, :group_id, :accepted?, :admin_approved?, :cohort_id)
     end
 end
