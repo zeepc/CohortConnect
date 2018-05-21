@@ -27,12 +27,12 @@ class CohortsController < ApplicationController
   # POST /cohorts.json
   def create
 
-    if user_signed_in?
+    if current_user_id = current_user.id
       @cohort = Cohort.new(cohort_params)
 
       respond_to do |format|
         if @cohort.save
-          CohortUser.create(cohort_id: @cohort.id, user_id: current_user.id, user_role: 'admin')
+          CohortUser.create(cohort_id: @cohort.id, user_id: current_user_id, user_role: 'admin')
           format.html { redirect_to @cohort, notice: 'Cohort was successfully created.' }
           format.json { render :show, status: :created, location: @cohort }
         else

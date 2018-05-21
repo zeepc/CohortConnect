@@ -12,6 +12,8 @@ def get_role
     @user_role = user_cohort_association.user_role
   end
 end
+
+
   
   
 
