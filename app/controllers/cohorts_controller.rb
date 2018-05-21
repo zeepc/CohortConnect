@@ -24,16 +24,22 @@ class CohortsController < ApplicationController
   # POST /cohorts
   # POST /cohorts.json
   def create
-    @cohort = Cohort.new(cohort_params)
 
-    respond_to do |format|
-      if @cohort.save
-        format.html { redirect_to @cohort, notice: 'Cohort was successfully created.' }
-        format.json { render :show, status: :created, location: @cohort }
-      else
-        format.html { render :new }
-        format.json { render json: @cohort.errors, status: :unprocessable_entity }
+    if user_signed_in?
+      @cohort = Cohort.new(cohort_params)
+
+      respond_to do |format|
+        if @cohort.save
+          CohortUser.create(cohort_id: @cohort.id, user_id: current_user.id, user_role: 'admin')
+          format.html { redirect_to @cohort, notice: 'Cohort was successfully created.' }
+          format.json { render :show, status: :created, location: @cohort }
+        else
+          format.html { render :new }
+          format.json { render json: @cohort.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to "/"
     end
   end
 
