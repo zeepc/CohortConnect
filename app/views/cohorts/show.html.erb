@@ -15,5 +15,8 @@
   <%= @cohort.end_date %>
 </p>
 
+
+  <%= render partial: 'cohort_request'%>
+
 <%= link_to 'Edit', edit_cohort_path(@cohort) %> |
 <%= link_to 'Back', cohorts_path %>
