@@ -23,8 +23,11 @@ class User < ApplicationRecord
     self.profile_link = auth.info.urls.public_profile
     self.location = auth.info.location.name
     self.summary = auth.extra.raw_info.summary
-    self.current_employer = auth.extra.raw_info.positions.values[1][0].company.name
-    self.current_title = auth.extra.raw_info.positions.values[1][0].title
+
+    if auth.extra.raw_info.positions.length > 1
+      self.current_employer = auth.extra.raw_info.positions.values[1][0].company.name
+      self.current_title = auth.extra.raw_info.positions.values[1][0].title
+    end
 
     if !self.password
       self.password = Devise.friendly_token[0,20]

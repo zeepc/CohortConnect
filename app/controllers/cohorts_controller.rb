@@ -1,5 +1,6 @@
 class CohortsController < ApplicationController
   before_action :set_cohort, only: [:show, :edit, :update, :destroy]
+  before_action :get_role
 
   # GET /cohorts
   # GET /cohorts.json
@@ -10,6 +11,7 @@ class CohortsController < ApplicationController
   # GET /cohorts/1
   # GET /cohorts/1.json
   def show
+    @cohort_id = params[:id]
   end
 
   # GET /cohorts/new
@@ -39,7 +41,7 @@ class CohortsController < ApplicationController
         end
       end
     else
-      redirect_to "/"
+      redirect_to 
     end
   end
 
@@ -75,6 +77,6 @@ class CohortsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cohort_params
-      params.require(:cohort).permit(:name, :start_date, :end_date)
+      params.require(:cohort).permit(:name, :start_date, :end_date, :cohort_id)
     end
 end

@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   
   resources :users
   resources :group_invitations
+
+  post '/invites', to: 'group_invitations#invites'
   
 
   root to: 'cohorts#index'

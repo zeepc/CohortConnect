@@ -3,6 +3,7 @@ class GroupInvitation < ApplicationRecord
 
   after_save :check_for_acceptance
 
+  attr_accessor :emails
 
 
   private
