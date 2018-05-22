@@ -1,6 +1,6 @@
 class CohortsController < ApplicationController
   before_action :set_cohort, only: [:show, :edit, :update, :destroy]
-  before_action :get_role
+  before_action :get_role_from_url
 
   # GET /cohorts
   # GET /cohorts.json
@@ -12,6 +12,11 @@ class CohortsController < ApplicationController
   # GET /cohorts/1.json
   def show
     @cohort_id = params[:id]
+    if cohort = Cohort.find_by_id(@cohort_id)
+      @admins = cohort.users.where()
+    else
+      puts "No Cohorts found"
+    end
   end
 
   # GET /cohorts/new
@@ -66,6 +71,14 @@ class CohortsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to cohorts_url, notice: 'Cohort was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  #DELETE /users/remove_from_cohort
+  def remove_from_cohort
+    #if passed user id = current user id or current user is admin of specified cohort
+    if cohort_params[:user_id] == current_user.id || current_user.cohorts(cohort_params[:cohort_id]).user_role == "admin"
+      User.find(cohort_params[:user_id]).cohorts.delete(Cohort.find(params[:cohort_id]))
     end
   end
 
