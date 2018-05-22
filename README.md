@@ -20,7 +20,8 @@ Rails
 A step by step series of examples that tell you have to get a development env running
 
 Copy the "clone with https" link by clicking the copy button
-![clone button](/readme_images/clone_button.png)
+
+<img src="/readme_images/clone_button.png" width="200px" height="auto">
 
 ```
 git clone
