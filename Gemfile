@@ -64,3 +64,13 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'bootstrap', '~> 4.1.1'
+
+gem 'jquery-rails'
+
+gem 'fontawesome-rails', '~> 4.0', '>= 4.0.3.2'
+
+gem "bootstrap_form",
+    git: "https://github.com/bootstrap-ruby/bootstrap_form.git",
+    branch: "master"
