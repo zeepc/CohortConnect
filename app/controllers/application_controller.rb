@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+  skip_before_action :verify_authenticity_token
   # before_action :authenticate_user!
 def get_role_from_url
 
@@ -16,11 +16,19 @@ def get_role_from_url
 end
 
 def get_role(cohort_id, user_id)
-  if current_user && user_cohort_association = CohortUser.where(cohort_id: cohort_id, user_id: user_id).first
+  if user_cohort_association = CohortUser.where(cohort_id: cohort_id, user_id: user_id).first
     user_role = user_cohort_association.user_role
   end
+end
 
-  return user_role
+def is_admin?(cohort_id, user_id)
+  return get_role(cohort_id, user_id) == 'admin'
+end
+
+def bounce_if_not_logged_in
+  if !user_signed_in?
+    redirect_to '/'
+  end
 end
 
 

@@ -117,11 +117,7 @@ class GroupInvitationsController < ApplicationController
       params.require(:group_invitation).permit(:emails, :email, :sent_by_id, :user_id, :group_id, :accepted?, :admin_approved?, :cohort_id)
     end
 
-    def bounce_if_not_logged_in
-      if !user_signed_in?
-        redirect_to '/'
-      end
-    end
+    
     
     def create_invitation(email = "not an email")
 
