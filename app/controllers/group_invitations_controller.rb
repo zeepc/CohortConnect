@@ -28,6 +28,8 @@ class GroupInvitationsController < ApplicationController
 
   #POST /invites
   def invites
+
+    
     emails = group_invitation_params[:emails].split(',').map {|email| email.strip}
     #emails = ENV['EMAILS'].split(',').map {|email| email.strip}
 
