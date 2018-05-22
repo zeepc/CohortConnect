@@ -6,10 +6,6 @@ Now all members can easily see who they should connect with.
 
 Great for bootcamp cohorts where people forget to add their classmates because they assume they're already all connected.
 
-## Getting Started
-
-
-
 ### Prerequisites
 
 Ruby 2.5.0
@@ -17,65 +13,45 @@ Rails
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+A step by step series of examples that will get a development env running
 
-Copy the "clone with https" link by clicking the copy button
+In terminal navigate to folder you want to save the project
 
-<img src="/readme_images/clone_button.png" width="200px" height="auto">
-
+clone the project
 ```
-git clone
-```
-
-And repeat
-
-```
-until finished
+git clone https://github.com/DavidLangva/CohortConnect.git
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
+navigate into the project folder
 ```
-Give an example
+cd cohortConnect
 ```
 
-### And coding style tests
-
-Explain what these tests test and why
-
+install dependencies
 ```
-Give an example
+bundle install
 ```
 
-## Deployment
+start the rails server
+```
+rails s
+```
 
-Add additional notes about how to deploy this on a live system
+Go to browser and navigate to localhost:3000 and the site should be live. 
+
+
+
 
 ## Built With
 
 * [Devise](https://github.com/plataformatec/devise) - User Authentication 
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Zee Perez Canals** - *Initial work* - [zeepc](https://github.com/zeepc)
+* **Janelle Ballack** - *Initial work* - [Jnl526](https://github.com/Jnl526)
+* **David Langva** - *Initial work* - [DavidLangva](https://github.com/PurpleBooth)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
@@ -85,6 +61,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* *Travis Pew* - [travisp](https://github.com/travisp)
+  For his awesome [post](https://github.com/scambra/devise_invitable/issues/177 "Correcting invitable synchronization with omniauthable") on integrating oauth with devise-invitable gem
+
