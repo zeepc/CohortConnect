@@ -1,6 +1,6 @@
 class GroupInvitationsController < ApplicationController
   before_action :set_group_invitation, only: [:show, :edit, :update, :destroy]
-  before_action :get_role
+  before_action :get_role_from_url
   before_action :bounce_if_not_logged_in
   
 
@@ -35,8 +35,12 @@ class GroupInvitationsController < ApplicationController
 
     emails.each do |email|
 
-      if !User.find_by(email: email)
+      #if the user does not exists, invite them into the app. 
+      #if the user does exist and they are already in the cohort or already invited to the cohort, skip inviting them.
+      if !user = User.find_by(email: email)
         User.invite!({email: email})
+      elsif user.cohorts.find_by_id(group_invitation_params[:group_id]) || user.group_invitations.find_by(user_id: user.id)
+        next
       end
 
       create_invitation(email)

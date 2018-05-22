@@ -9,12 +9,12 @@ Rails.application.routes.draw do
     resources :group_invitations
   end
   
+  post '/invites', to: 'group_invitations#invites'
+  delete '/cohorts/remove_user_from_cohort/', to: 'cohorts#remove_from_cohort'
+  put '/cohorts/add_user_to_admin', to: 'cohorts#add_user_to_admin'
+  
   resources :users
   resources :group_invitations
-  resources :cohort_users
-
-  post '/invites', to: 'group_invitations#invites'
-  
 
   root to: 'cohorts#index'
 end
