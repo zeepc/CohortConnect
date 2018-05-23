@@ -36,6 +36,7 @@ class UsersController < ApplicationController
   def login
     if current_user
       redirect_to '/users/profile'
+      return
     end
     render layout: "login"
   end
