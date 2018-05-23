@@ -1,0 +1,10 @@
+<div class=" col-4">
+	<ul class="list-group">
+ 		<li class="list-group-item">MY COHORTS<i class="fa fa-plus-square-o fa-lg" aria-hidden="true" style="float: right;"></i></li>
+ 		<% @admin_cohorts.each do |cohort| %>
+  	<li class="list-group-item"><span style="float: left;"><%= cohort.name%></span><span  style="float: right;"><%= cohort.start_date%></span></li>
+  	<% end%>
+	</ul>
+</div>
+
+

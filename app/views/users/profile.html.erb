@@ -1,43 +1,15 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+<%= render "/shared/page_header_user" %>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+<div class="container">
+  <div class="row">
+    <%= render "/shared/summary_card" %>
+    <%= render "/shared/profile_sidebar" %>
+    <%= render "/shared/cohort_membership" %>
+  </div>
 
-<p>
-  <strong>Profile image url:</strong>
-  <img src="<%= @user.profile_image_link%>" alt="">
-</p>
+ <button class="btn btn-outline-primary"><%= link_to("Delete Account") %></button>
+</div>
 
 
 
-<p>
-  <strong>Current employer:</strong>
-  <%= @user.current_employer %>
-</p>
-
-<p>
-  <strong>Current title:</strong>
-  <%= @user.current_title %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @user.location %>
-</p>
-
-<p>
-  <strong>My Cohorts</strong>
-  <%= @all_cohorts.first.name %>
-</p>
-
-<p>
-  <strong>I am an admin here!!!!!!:</strong>
-  <%= @admin_cohorts.first.name %>
-</p>
