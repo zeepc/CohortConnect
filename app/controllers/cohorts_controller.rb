@@ -4,9 +4,6 @@ class CohortsController < ApplicationController
   before_action :bounce_if_not_logged_in, only: [:create, :update, :destroy]
   before_action :get_role_from_url, only: [:show, :update, :destroy], if: -> { current_user }
 
-
-
-  
   # GET /cohorts/1
   # GET /cohorts/1.json
   def show
