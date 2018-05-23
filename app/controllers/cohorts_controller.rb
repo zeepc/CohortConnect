@@ -17,7 +17,7 @@ class CohortsController < ApplicationController
   # GET /cohorts/1.json
   def show
 
-     @user = User.find(cohort_params[:user_id])
+    @user = current_user
 
     @cohort_id = params[:id]
     if cohort = Cohort.find_by_id(@cohort_id)

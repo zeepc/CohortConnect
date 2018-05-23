@@ -2,19 +2,10 @@ class ApplicationController < ActionController::Base
   skip_before_action :verify_authenticity_token
   # before_action :authenticate_user!
 def get_role_from_url
-
   #gets the users role relative to the cohort specified in the url
 
   #edge case because params[:id] changes with nested routes
   cohort_id = /group_invitations/.match(request.original_url) ? params[:cohort_id] : params[:id]
-
-=======
-
-  #edge case because params[:id] changes with nested routes
-  cohort_id = /group_invitations/.match(request.original_url) ? params[:cohort_id] : params[:id]
-
-
-
 
   @user_role = get_role(cohort_id, current_user.id)
 end
