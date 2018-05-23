@@ -1,0 +1,24 @@
+<div class="container">
+<h3 class="entry-title pb-3">Students</h3>
+<div class="row m-0">
+        <% @students.each do |student|%>
+          <div class="col-md-4">
+           <div class="card">
+            <div class="card-body text-center">
+              <div class="photo-container">
+                <%= image_tag (student.profile_image_link), :class => ("thumb_sm ") %>
+              </div>
+              <h5 class="name"><%= student.name%></h5>
+              <p class="location">
+                <%= student.location%>
+              </p>
+              <p class="profile">
+              <%= link_to("View Profile", user_path(@user), class:"btn text-uppercase") %>
+              </p>
+        </div> <!-- card-body -->
+        </div> <!-- card -->
+       </div> <!-- col-md-4 -->
+       <% end %>
+     </div> <!-- row -->
+        </div>
+</div>

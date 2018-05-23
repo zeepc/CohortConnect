@@ -1,20 +1,24 @@
 class CohortsController < ApplicationController
   before_action :set_cohort, only: [:show, :edit, :update, :destroy]
+
   before_action :bounce_if_not_logged_in, only: [:new, :create, :update, :destroy]
   before_action :get_role_from_url, only: [:show, :edit, :update, :destroy], if: -> { current_user }
-  
-  
+
 
 
   # GET /cohorts
   # GET /cohorts.json
   def index
     @cohorts = Cohort.all
+    render layout: "login"
   end
 
   # GET /cohorts/1
   # GET /cohorts/1.json
   def show
+
+     @user = User.find(cohort_params[:user_id])
+
     @cohort_id = params[:id]
     if cohort = Cohort.find_by_id(@cohort_id)
       @admins = User.joins(:cohort_users).where(cohort_users: {cohort_id: @cohort_id, user_role: "admin"}) 
@@ -37,7 +41,6 @@ class CohortsController < ApplicationController
   # POST /cohorts
   # POST /cohorts.json
   def create
-    
     if @user_role == 'admin'
         @cohort = Cohort.new(name: cohort_params[:name], start_date: cohort_params[:start_date], end_date: cohort_params[:end_date], description: cohort_params[:description])
 
@@ -121,6 +124,8 @@ class CohortsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cohort_params
+
       params.require(:cohort).permit(:name, :start_date, :end_date, :description, :cohort_id, :user_id)
+
     end
 end

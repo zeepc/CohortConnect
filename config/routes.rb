@@ -12,7 +12,6 @@ Rails.application.routes.draw do
 
   resources :cohorts
 
-  get '/users/profile', to: 'users#profile'
 
   resources :users, only: [:destroy]
   resources :group_invitations, only: [:create, :destroy]
