@@ -2962,6 +2962,7 @@
     font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif; }
   
   h1, h2, h3, h4, h5, h6 {
+    font-family: Roboto;
     font-weight: 400; }
   
   small {
@@ -3014,7 +3015,19 @@
     line-height: 1.61em;
     font-weight: 300;
     font-size: 1.2em; }
-  
+    
+    .excerpt{
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      /* autoprefixer: off */
+
+-webkit-box-orient: vertical;
+
+/* autoprefixer: on */
+      overflow: hidden;
+      text-overflow: ellipsis;  
+    }
+
   .title {
     font-weight: 700;
     padding-top: 30px; }
@@ -3082,7 +3095,7 @@
   body {
     color: #2c2c2c;
     font-size: 14px;
-    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased; }
@@ -3280,7 +3293,7 @@
     padding: 5px 15px; }
   .navbar .navbar-nav .nav-link:not(.btn) {
     text-transform: uppercase;
-    font-size: 0.7142em;
+    font-size: 0.757rem;
     padding: 0.5rem 0.7rem;
     line-height: 1.625rem; }
   .navbar .navbar-nav .nav-link:not(.btn) i.fa + p, .navbar .navbar-nav .nav-link:not(.btn) i.now-ui-icons + p {

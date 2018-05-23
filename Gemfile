@@ -75,3 +75,5 @@ gem 'fontawesome-rails', '~> 4.0', '>= 4.0.3.2'
 gem "bootstrap_form",
     git: "https://github.com/bootstrap-ruby/bootstrap_form.git",
     branch: "master"
+
+gem 'rails-html-sanitizer'
