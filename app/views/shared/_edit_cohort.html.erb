@@ -1,0 +1,14 @@
+<%= bootstrap_form_for @cohort do |f| %>
+    <%= f.text_field :name %>
+    <div class="row m-0">
+      <div class="col-md-4">
+        <%= f.date_field :start_date %>
+        </div>
+      <div class="col-md-4">
+            <%= f.date_field :end_date %>
+      </div>
+      
+    <div class="col-md-4">
+    <%= f.submit "Update", class: " btn  mb-3" %>
+    </div>
+<% end %>

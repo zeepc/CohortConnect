@@ -1,0 +1,78 @@
+.navbar-transparent{
+  background: transparent;
+  a{
+    color: #fff;
+  }
+}
+
+.nav-link{
+  font-family: Roboto, FontAwesome, sans-serif;
+
+}
+.page-header[filter-color="green"] {
+  background-image: image-url('login_bk.jpg');
+}
+.page-header{ 
+    min-height: 60vh;
+    max-height: 440px;
+    position: relative;
+
+    .content-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 2;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #FFFFFF;
+      padding: 0 15px;
+      width: 100%;
+    // max-width: 880px;
+  }
+  .content-lower {
+    position: absolute;
+    bottom: 0;
+    color: #FFFFFF;
+    padding: 0 15px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    .left {
+      left: 0%;
+      transform: translate(0, -100%);
+      text-align: left;
+      
+      .share{
+        &::before{
+            content: "";
+            background-image: image-url('share_icon.png');
+            background-repeat: no-repeat;
+            background-size: 18px;
+            padding: 20px;
+        } 
+      }
+    }
+    .right {
+      right: 0%;
+      // transform: translate(-11%, 0);
+      text-align: right;
+      }
+      .hr-line{
+        background: #fff;
+        height: 1px;
+        width: 75px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform: translate(0, 25px);
+    }
+
+  .social-description {
+    display: inline-block;
+    text-align: center;
+    margin: 15px 0 0px;
+}
+}
+}
