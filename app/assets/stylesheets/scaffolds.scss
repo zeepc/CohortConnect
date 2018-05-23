@@ -69,11 +69,18 @@ div {
   }
 }
 
-label {
-  display: block;
+.form-group{
+  label {
+    display: block;
+    color: #505050;
+    text-align: left;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  .form-control{
+    border-radius: 0;
+  }
 }
-
-
 .profile{
    .btn {
     background-color: transparent;
@@ -89,4 +96,8 @@ label {
       }
    }
    
+}
+.section {
+  padding: 70px 0;
+  position: relative;
 }

@@ -37,6 +37,7 @@ class UsersController < ApplicationController
     if current_user
       redirect_to '/users/profile'
     end
+    render layout: "login"
   end
 
   # GET /users/profile
