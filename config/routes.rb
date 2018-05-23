@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end  
 
   get '/users/profile', to: 'users#profile'
+
   resources :users
   resources :group_invitations
 
