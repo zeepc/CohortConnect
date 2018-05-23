@@ -3,33 +3,8 @@ class GroupInvitationsController < ApplicationController
   before_action :get_role_from_url
   before_action :bounce_if_not_logged_in
   
-
-  # GET /group_invitations
-  # GET /group_invitations.json
-  def index
-    @group_invitations = GroupInvitation.all
-  end
-
-  # GET /group_invitations/1
-  # GET /group_invitations/1.json
-  def show
-  end
-
-  # GET /group_invitations/new
-  def new
-
-    @group_invitation = GroupInvitation.new
-  end
-
-  # GET /group_invitations/1/edit
-  def edit
-  end
-
-
   #POST /invites
   def invites
-
-    
     emails = group_invitation_params[:emails].split(',').map {|email| email.strip}
     #emails = ENV['EMAILS'].split(',').map {|email| email.strip}
 
@@ -50,7 +25,6 @@ class GroupInvitationsController < ApplicationController
   # POST /group_invitations
   # POST /group_invitations.json
   def create
-
     create_invitation(group_invitation_params[:email])
     # if current_user && user_cohort_association = CohortUser.where(cohort_id: group_invitation_params[:group_id], user_id: current_user.id)[0]
     #   @user_role = user_cohort_association.user_role
@@ -80,20 +54,6 @@ class GroupInvitationsController < ApplicationController
     #     format.json { render json: @group_invitation.errors, status: :unprocessable_entity }
     #   end
     # end
-  end
-
-  # PATCH/PUT /group_invitations/1
-  # PATCH/PUT /group_invitations/1.json
-  def update
-    respond_to do |format|
-      if @group_invitation.update(group_invitation_params)
-        format.html { redirect_to @group_invitation, notice: 'Group invitation was successfully updated.' }
-        format.json { render :show, status: :ok, location: @group_invitation }
-      else
-        format.html { render :edit }
-        format.json { render json: @group_invitation.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # DELETE /group_invitations/1
