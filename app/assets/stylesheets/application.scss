@@ -1,0 +1,64 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap";
+ @import "fontawesome";
+
+ .nav-link{
+    font-family: Roboto, FontAwesome, sans-serif;
+
+ }
+
+ .page-header{ 
+    .content-lower {
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    color: #FFFFFF;
+    padding: 0 15px;
+    width: 100%;
+        .left {
+            left: 0%;
+            transform: translate(20.5%, -100%);
+            text-align: left;
+            }
+        .right {
+            right: 0%;
+            transform: translate(-11%, 0);
+            text-align: right;
+            }
+    }
+    .hr-line{
+        background: #fff;
+        height: 1px;
+        width: 75px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform: translate(0, 25px);
+    }
+    .edit{
+        font-size: 18px;
+    }
+    .share{
+        &::before{
+            content: "";
+            background-image: image-url('share_icon.png');
+            background-repeat: no-repeat;
+            background-size: 18px;
+            padding: 20px;
+        } 
+    }
+ }
