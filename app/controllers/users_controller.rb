@@ -64,6 +64,8 @@ class UsersController < ApplicationController
     if !@user = current_user
       bounce_if_not_logged_in
     end
+    @all_cohorts = @user.cohorts.all
+    @admin_cohorts = Cohort.joins(:cohort_users).where(cohort_users: {user_id: current_user.id, user_role: "admin"})
   end
 
   private
@@ -74,6 +76,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :profile_image_url, :profile_link_url, :current_employer, :current_title, :city, :state)
+      params.require(:user).permit(:first_name, :last_name, :profile_image_link, :profile_link_url, :current_employer, :current_title, :city, :state)
     end
 end
