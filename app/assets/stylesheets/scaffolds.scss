@@ -19,18 +19,7 @@ pre {
   font-size: 11px;
 }
 
-a {
-  color: #000;
 
-  &:visited {
-    color: #666;
-  }
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
-}
 
 th {
   padding-bottom: 5px;
@@ -80,8 +69,17 @@ div {
   }
 }
 
-label {
-  display: block;
+.form-group{
+  label {
+    display: block;
+    color: #505050;
+    text-align: left;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  .form-control{
+    border-radius: 0;
+  }
 }
 .profile{
    .btn {
@@ -91,9 +89,15 @@ label {
     font-size: 12px;
     font-family: Open Sans, sans-serif;
     font-weight: 600;
+    color: #666;
       &:hover{
         background-color: #55B7A5;
+        color: #fff;
       }
    }
    
+}
+.section {
+  padding: 70px 0;
+  position: relative;
 }

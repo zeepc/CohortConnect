@@ -10,12 +10,11 @@ Rails.application.routes.draw do
   put '/cohorts/add_user_to_admin', to: 'cohorts#add_user_to_admin'
   get '/cohorts/:id/pending_requests', to: 'cohorts#pending_requests'
   get '/users/profile', to: 'users#profile'
+  delete '/users/profile', to: 'users#destroy'
+  delete '/group_invitations', to: 'group_invitations#destroy'
 
-  resources :cohorts
+  resources :cohorts, only: [:create, :show, :destroy, :update]
+  resources :group_invitations, only: [:create]
 
-
-  resources :users, only: [:destroy]
-  resources :group_invitations, only: [:create, :destroy]
-
-  root to: 'cohorts#index'
+  root to: 'users#login'
 end

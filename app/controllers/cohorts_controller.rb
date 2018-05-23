@@ -1,22 +1,12 @@
 class CohortsController < ApplicationController
-  before_action :set_cohort, only: [:show, :edit, :update, :destroy]
+  before_action :set_cohort, only: [:show, :update, :destroy]
 
-  before_action :bounce_if_not_logged_in, only: [:new, :create, :update, :destroy]
-  before_action :get_role_from_url, only: [:show, :edit, :update, :destroy], if: -> { current_user }
-
-
-
-  # GET /cohorts
-  # GET /cohorts.json
-  def index
-    @cohorts = Cohort.all
-    render layout: "login"
-  end
+  before_action :bounce_if_not_logged_in, only: [:create, :update, :destroy]
+  before_action :get_role_from_url, only: [:show, :update, :destroy], if: -> { current_user }
 
   # GET /cohorts/1
   # GET /cohorts/1.json
   def show
-
     @user = current_user
 
     @cohort_id = params[:id]
@@ -28,35 +18,19 @@ class CohortsController < ApplicationController
     end
   end
 
-  # GET /cohorts/new
-  def new
-    
-    @cohort = Cohort.new
-  end
-
-  # GET /cohorts/1/edit
-  def edit
-  end
 
   # POST /cohorts
   # POST /cohorts.json
   def create
-    if @user_role == 'admin'
-        @cohort = Cohort.new(name: cohort_params[:name], start_date: cohort_params[:start_date], end_date: cohort_params[:end_date], description: cohort_params[:description])
+    @cohort = Cohort.new(name: cohort_params[:name], start_date: cohort_params[:start_date], end_date: cohort_params[:end_date], description: cohort_params[:description])
 
-        respond_to do |format|
-          if @cohort.save
-            CohortUser.create(cohort_id: @cohort.id, user_id: current_user.id, user_role: 'admin')
-            format.js { puts 'Cohort was successfully created.' }
-            format.html { redirect_to @cohort, notice: 'Cohort was successfully created.' }
-            format.json { render :show, status: :created, location: @cohort }
-          else
-            format.html { render :new }
-            format.json { render json: @cohort.errors, status: :unprocessable_entity }
-          end
-        end
-    else
-      redirect_to '/'
+    respond_to do |format|
+      if @cohort.save
+        CohortUser.create(cohort_id: @cohort.id, user_id: current_user.id, user_role: 'admin')
+        format.js { puts 'Cohort was successfully created.' }
+      else
+        format.js { puts 'Cohort was not created.' }
+      end
     end
   end
 
