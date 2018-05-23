@@ -61,7 +61,9 @@ class UsersController < ApplicationController
 
   # GET /users/profile
   def profile
-    @user = current_user
+    if !@user = current_user
+      bounce_if_not_logged_in
+    end
   end
 
   private
