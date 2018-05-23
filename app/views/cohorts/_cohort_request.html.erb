@@ -1,8 +1,6 @@
 <% if current_user%>
 
   <%= form_for GroupInvitation.new(), :url => '/invites' do |form| %>
-   
-
       <div class="field">
         <%= form.label :emails %>
         <%= form.text_area :emails %>

@@ -11,13 +11,10 @@ Rails.application.routes.draw do
   get '/cohorts/:id/pending_requests', to: 'cohorts#pending_requests'
   get '/users/profile', to: 'users#profile'
   delete '/users/profile', to: 'users#destroy'
+  delete '/group_invitations', to: 'group_invitations#destroy'
 
-  resources :cohorts
-
-
-  resources :users, only: []
-
-  resources :group_invitations, only: [:create, :destroy]
+  resources :cohorts, only: [:create, :show, :destroy, :update]
+  resources :group_invitations, only: [:create]
 
   root to: 'users#login'
 end
