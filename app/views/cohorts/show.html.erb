@@ -15,5 +15,20 @@
   <%= @cohort.end_date %>
 </p>
 
+<h1>Admins</h1>
+<% @admins.each do |admin|%>
+  <img src="<%= admin.profile_image_link%>" alt="">
+  <p><%= admin.first_name%></p>
+<% end %>
+
+<h1>Students</h1>
+<% @students.each do |student|%>
+  <img src="<%= student.profile_image_link%>" alt="">
+  <p><%= student.first_name%></p>
+<% end %>
+
+
+  <%= render partial: 'cohort_request'%>
+
 <%= link_to 'Edit', edit_cohort_path(@cohort) %> |
 <%= link_to 'Back', cohorts_path %>
