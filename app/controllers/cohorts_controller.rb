@@ -41,22 +41,18 @@ class CohortsController < ApplicationController
   # POST /cohorts
   # POST /cohorts.json
   def create
-    if @user_role == 'admin'
-        @cohort = Cohort.new(name: cohort_params[:name], start_date: cohort_params[:start_date], end_date: cohort_params[:end_date], description: cohort_params[:description])
+    @cohort = Cohort.new(name: cohort_params[:name], start_date: cohort_params[:start_date], end_date: cohort_params[:end_date], description: cohort_params[:description])
 
-        respond_to do |format|
-          if @cohort.save
-            CohortUser.create(cohort_id: @cohort.id, user_id: current_user.id, user_role: 'admin')
-            format.js { puts 'Cohort was successfully created.' }
-            format.html { redirect_to @cohort, notice: 'Cohort was successfully created.' }
-            format.json { render :show, status: :created, location: @cohort }
-          else
-            format.html { render :new }
-            format.json { render json: @cohort.errors, status: :unprocessable_entity }
-          end
-        end
-    else
-      redirect_to '/'
+    respond_to do |format|
+      if @cohort.save
+        CohortUser.create(cohort_id: @cohort.id, user_id: current_user.id, user_role: 'admin')
+        format.js { puts 'Cohort was successfully created.' }
+        format.html { redirect_to @cohort, notice: 'Cohort was successfully created.' }
+        format.json { render :show, status: :created, location: @cohort }
+      else
+        format.html { render :new }
+        format.json { render json: @cohort.errors, status: :unprocessable_entity }
+      end
     end
   end
 
