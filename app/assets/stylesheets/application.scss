@@ -16,4 +16,59 @@
  @import "bootstrap";
  @import "fontawesome";
 
- 
+ .nav-link{
+    font-family: Roboto, FontAwesome, sans-serif;
+
+ }
+
+ .page-header{ 
+    .content-lower {
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    color: #FFFFFF;
+    padding: 0 15px;
+    width: 100%;
+        .left {
+            left: 0%;
+            transform: translate(20.5%, -100%);
+            text-align: left;
+            }
+        .right {
+            right: 0%;
+            transform: translate(-11%, 0);
+            text-align: right;
+            }
+    }
+    .hr-line{
+        background: #fff;
+        height: 1px;
+        width: 75px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform: translate(0, 25px);
+    }
+    .edit{
+        font-size: 18px;
+    }
+    .share{
+        &::before{
+            content: "";
+            background-image: image-url('share_icon.png');
+            background-repeat: no-repeat;
+            background-size: 18px;
+            padding: 20px;
+        } 
+    }
+ }
+
+ .container {
+    margin-top: 5%;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+

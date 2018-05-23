@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2018_05_20_145039) do
 
   create_table "cohorts", force: :cascade do |t|
     t.string "name"
-    t.string "description"
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false
