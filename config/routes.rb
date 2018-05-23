@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :cohorts do
     resources :group_invitations
   end  
+
+  get '/users/profile', to: 'users#profile'
   resources :users
   resources :group_invitations
 

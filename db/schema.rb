@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2018_05_20_145039) do
   create_table "cohort_users", force: :cascade do |t|
     t.integer "cohort_id"
     t.integer "user_id"
-    t.string "user_role", default: "student"
+    t.string "user_role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,12 +47,12 @@ ActiveRecord::Schema.define(version: 2018_05_20_145039) do
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "profile_image_link"
-    t.string "profile_link"
+    t.string "profile_image_url"
+    t.string "profile_link_url"
     t.string "current_employer"
     t.string "current_title"
-    t.string "location"
-    t.string "summary"
+    t.string "city"
+    t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
