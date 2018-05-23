@@ -17,15 +17,15 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
+  # DELETE /users/profile
+  # DELETE /users/profile
   def destroy
+    puts 555555
     if @user.id == current_user.id
+      puts @user.first_name
       @user.destroy
       respond_to do |format|
         format.js {redirect_to '/', notice: 'Your account was successfully deleted.'}
-        format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-        format.json { head :no_content }
       end
     else
       puts "Cannot delete someone elses account"
