@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete '/cohorts/remove_user_from_cohort', to: 'cohorts#remove_from_cohort'
   put '/cohorts/add_user_to_admin', to: 'cohorts#add_user_to_admin'
   get '/cohorts/:id/pending_requests', to: 'cohorts#pending_requests'
+  get '/users/profile', to: 'users#profile'
 
   resources :cohorts
 
