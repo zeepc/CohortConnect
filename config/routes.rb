@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   resources :users, only: [:destroy]
   resources :group_invitations, only: [:create, :destroy]
 
-  root to: 'cohorts#index'
+  root to: 'users#login'
 end
