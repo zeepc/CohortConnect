@@ -1,19 +1,6 @@
-<p id="notice"><%= notice %></p>
+<div class="wrapper">
+  
+<%= render "/shared/page_header_cohort" %>
+<%= render "/shared/section_one_cohort" %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @cohort.name %>
-</p>
-
-<p>
-  <strong>Start date:</strong>
-  <%= @cohort.start_date %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @cohort.end_date %>
-</p>
-
-<%= link_to 'Edit', edit_cohort_path(@cohort) %> |
-<%= link_to 'Back', cohorts_path %>
+</div> <!-- wrapper -->

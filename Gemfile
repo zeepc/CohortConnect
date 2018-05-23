@@ -6,6 +6,7 @@ ruby '2.5.0'
 gem 'figaro'
 gem 'omniauth-linkedin-oauth2'
 gem 'devise'
+gem 'devise_invitable', '~> 1.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'

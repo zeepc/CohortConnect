@@ -1,0 +1,39 @@
+<%= form_with(model: group_invitation, local: true) do |form| %>
+  <% if group_invitation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(group_invitation.errors.count, "error") %> prohibited this group_invitation from being saved:</h2>
+
+      <ul>
+      <% group_invitation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :sent_by_id %>
+    <%= form.number_field :sent_by_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :group_id %>
+    <%= form.number_field :group_id %>
+  </div>
+
+
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
