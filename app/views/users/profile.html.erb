@@ -8,7 +8,8 @@
     <%= render "/shared/cohort_membership" %>
   </div>
 
- <button class="btn btn-outline-primary"><%= link_to("Delete Account") %></button>
+ <button class="btn btn-outline-primary"><%= link_to 'Delete My Account',  "/users/profile",
+   data: { confirm: 'Are you sure?' }, method: :delete, remote: true %></button>
 </div>
 
 
