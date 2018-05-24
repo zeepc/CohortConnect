@@ -3,11 +3,13 @@ class CohortsController < ApplicationController
 
   before_action :bounce_if_not_logged_in, only: [:create, :update, :destroy]
   before_action :get_role_from_url, only: [:show, :update, :destroy], if: -> { current_user }
+  before_action :pending_requests, only: [:show], if: -> { current_user }
 
   # GET /cohorts/1
   # GET /cohorts/1.json
   def show
     @user = current_user
+
 
     @cohort_id = params[:id]
     if cohort = Cohort.find_by_id(@cohort_id)
@@ -23,7 +25,6 @@ class CohortsController < ApplicationController
   # POST /cohorts.json
   def create
     @cohort = Cohort.new(name: cohort_params[:name], start_date: cohort_params[:start_date], end_date: cohort_params[:end_date], description: cohort_params[:description])
-
     respond_to do |format|
       if @cohort.save
         CohortUser.create(cohort_id: @cohort.id, user_id: current_user.id, user_role: 'admin')
@@ -31,6 +32,11 @@ class CohortsController < ApplicationController
       else
         format.js { puts 'Cohort was not created.' }
       end
+    end
+
+    if cohort_params[:emails].length > 1
+      options = {group_id: @cohort.id, emails: cohort_params[:emails], sent_by_id: current_user.id}
+      process_invites(options)
     end
   end
 
@@ -68,9 +74,13 @@ class CohortsController < ApplicationController
   #DELETE /cohorts/:cohort_id/user/:user_id/remove_user_from_cohort
   def remove_user_from_cohort
     # if passed user id belongs to current user or current user is admin of specified cohort
-    if params[:user_id] == current_user.id || get_role(params[:cohort_id], current_user.id) == "admin"
-      User.find(params[:user_id]).cohorts.delete(Cohort.find(params[:cohort_id]))
+    @user = User.find(params[:user_id])
+
+    if params[:user_id].to_i == current_user.id || get_role(params[:cohort_id], current_user.id) == "admin"
+      @user.cohorts.delete(Cohort.find(params[:cohort_id]))
     end
+
+    
   end
 
   #PUT /cohorts/:cohort_id/user/:user_id/add_user_to_admin
@@ -80,26 +90,22 @@ class CohortsController < ApplicationController
     end
   end
 
-  #GET /cohorts/:id/pending_requests
-  def pending_requests
-    if is_admin?(params[:id], current_user.id)
-      @pending_requests = GroupInvitation.where(admin_approved?: false, group_id: params[:id])
-      @cohorts = []
-    end
-    render 'index'
-  end
-
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cohort
       @cohort = Cohort.find(params[:id])
     end
 
+    def pending_requests
+      if is_admin?(params[:id], current_user.id)
+        @pending_requests = User.joins(:group_invitations).where(group_invitations: {admin_approved?: false, group_id: params[:id]})
+      end
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def cohort_params
 
-      params.require(:cohort).permit(:name, :start_date, :end_date, :description, :cohort_id, :user_id)
+      params.require(:cohort).permit(:emails, :name, :start_date, :end_date, :description, :cohort_id, :user_id)
 
     end
 end
