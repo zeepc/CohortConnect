@@ -1,10 +1,14 @@
-<div class="col-7 cohorts scroller list-group">
-    	<a class="list-group-item card-header">CONNECTED COHORTS</a>
+<div class="col-7 cohorts">
+	<div class="card-header">
+    	CONNECTED COHORTS
+    </div>
+    <div class="list-group scroller">
     	<% cohorts.each do |cohort| %>
       		<a 	href="/cohorts/<%= cohort.id%>" class="list-group-item list-group-item-action">
   				<span style="float: left;"><%= cohort.name%></span>
   				<span style="float: right;"><%= cohort.start_date.strftime("%B %d, %Y")%></span>
   			</a>
   	<% end%>
+  </div>
 </div>
 
