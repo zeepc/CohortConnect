@@ -65,11 +65,11 @@ class CohortsController < ApplicationController
     end
   end
 
-  #DELETE /cohorts/remove_user_from_cohort
+  #DELETE /cohorts/:cohort_id/user/:user_id/remove_user_from_cohort
   def remove_user_from_cohort
     # if passed user id belongs to current user or current user is admin of specified cohort
-    if cohort_params[:user_id] == current_user.id || get_role(cohort_params[:cohort_id], current_user.id) == "admin"
-      User.find(cohort_params[:user_id]).cohorts.delete(Cohort.find(cohort_params[:cohort_id]))
+    if params[:user_id] == current_user.id || get_role(params[:cohort_id], current_user.id) == "admin"
+      User.find(params[:user_id]).cohorts.delete(Cohort.find(params[:cohort_id]))
     end
   end
 

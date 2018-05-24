@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { invitations: 'invitations', omniauth_callbacks: 'users/omniauth_callbacks' }
   
   post '/invites', to: 'group_invitations#invites'
-  delete '/cohorts/remove_user_from_cohort', to: 'cohorts#remove_from_cohort'
+  delete '/cohorts/:cohort_id/user/:user_id/remove_user_from_cohort', to: 'cohorts#remove_user_from_cohort'
   put '/cohorts/:cohort_id/user/:user_id/add_user_to_admin', to: 'cohorts#add_user_to_admin'
   get '/cohorts/:id/pending_requests', to: 'cohorts#pending_requests'
   get '/users/profile', to: 'users#profile'
