@@ -11,6 +11,14 @@
             <p class="profile">
               <%= link_to("View Profile", user.profile_link, class:"btn text-uppercase", target:"_blank") %>
             </p>
+            <% if @user_role == "admin" && CohortUser.find_by(user_id: user.id, cohort_id: params[:id]).user_role == "student" %>
+              <p class="add_admin">
+               <%= link_to("Make Admin", request.original_url + "/user/#{user.id}/add_user_to_admin", remote: true, method: :put, class:"btn text-uppercase") %>
+              </p>
+              <p class="remove_from_cohort">
+               <%= link_to("Remove from Cohort", request.original_url + "/user/#{user.id}/remove_user_from_cohort", remote: true, method: :delete, class:"btn text-uppercase") %>
+             </p>
+           <% end %>
           </div> <!-- card-body -->
         </div> <!-- card -->
       </div> <!-- col-md-4 -->
