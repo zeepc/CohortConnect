@@ -1,11 +1,11 @@
 <div class="col-7 cohorts">
     <ul class="list-group">
-    <li class="list-group-item">CONNECTED COHORTS</li>
-    <% cohorts.each do |cohort| %>
-  	<li class="list-group-item">
-  		<span style="float: left;"><%= cohort.name%></span>
-  		<span style="float: right;"><%= cohort.start_date%></span>
-  	</li>
+    	<li class="list-group-item">CONNECTED COHORTS</li>
+    	<% cohorts.each do |cohort| %>
+  		<li class="list-group-item">
+  			<span style="float: left;"><a href="/cohorts/<%= cohort.id%>"><%= cohort.name%></a></span>
+  			<span style="float: right;"><%= cohort.start_date%></span>
+  		</li>
   	<% end%>
 	</ul>
 </div>
