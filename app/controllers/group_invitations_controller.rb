@@ -6,21 +6,22 @@ class GroupInvitationsController < ApplicationController
   
   #POST /invites
   def invites
-    emails = group_invitation_params[:emails].split(',').map {|email| email.strip}
-    #emails = ENV['EMAILS'].split(',').map {|email| email.strip}
+    process_invites(group_invitation_params)
+    # emails = process_email_list_for_invite(group_invitation_params[:emails])
+    # #emails = ENV['EMAILS'].split(',').map {|email| email.strip}
 
-    emails.each do |email|
+    # emails.each do |email|
 
-      #if the user does not exists, invite them into the app. 
-      #if the user does exist and they are already in the cohort or already invited to the cohort, skip inviting them.
-      if !user = User.find_by(email: email)
-        User.invite!({email: email})
-      elsif user.cohorts.find_by_id(group_invitation_params[:group_id]) || user.group_invitations.find_by(user_id: user.id)
-        next
-      end
+    #   #if the user does not exists, invite them into the app. 
+    #   #if the user does exist and they are already in the cohort or already invited to the cohort, skip inviting them.
+    #   if !user = User.find_by(email: email)
+    #     User.invite!({email: email})
+    #   elsif user.cohorts.find_by_id(group_invitation_params[:group_id]) || user.group_invitations.find_by(user_id: user.id)
+    #     next
+    #   end
 
-      create_invitation(email)
-    end
+    #   create_invitation(group_invitation_params, email)
+    # end
   end
 
   # POST /group_invitations
@@ -77,27 +78,5 @@ class GroupInvitationsController < ApplicationController
       params.require(:group_invitation).permit(:emails, :email, :sent_by_id, :user_id, :group_id, :accepted?, :admin_approved?, :cohort_id)
     end
 
-    def create_invitation(email = "not an email")
-
-      puts "enetered create invitation"
-      if current_user && user_cohort_association = CohortUser.where(cohort_id: group_invitation_params[:group_id], user_id: current_user.id)[0]
-        @user_role = user_cohort_association.user_role
-      end
-
-      user_id = group_invitation_params[:user_id] != nil ? group_invitation_params[:user_id] : User.find_by(email: email).id
-
-
-      if @group_invitation = GroupInvitation.where(group_id: group_invitation_params[:group_id], user_id: user_id).first
-      else 
-        @group_invitation = GroupInvitation.new(group_id: group_invitation_params[:group_id], user_id: user_id, sent_by_id: group_invitation_params[:sent_by_id])
-      end
-  
-      field_to_update = @user_role == "admin" ? :admin_approved? : :accepted? 
-  
-      if @group_invitation.update(field_to_update => true)
-        puts "successfully created an invite to cohort #{group_invitation_params[:group_id]} for user #{user_id}"
-      end
-
-      puts @group_invitation.errors.full_messages
-    end
+    
 end
