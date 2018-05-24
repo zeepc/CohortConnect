@@ -13,10 +13,10 @@
               <%= student.location%>
             </p>
             <p class="profile">
-              <%= link_to("View Profile", user_path(@user), class:"btn text-uppercase", target:"_blank") %>
+              <%= link_to("View Profile", student.profile_link, class:"btn text-uppercase", target:"_blank") %>
             </p>
             <p class="add_admin">
-              <%= link_to("View Profile", user_path(@user), class:"btn text-uppercase") %>
+              <%= link_to("Make Admin", request.original_url + "/user/#{student.id}/add_user_to_admin", remote: true, method: :put, class:"btn text-uppercase") %>
             </p>
           </div> <!-- card-body -->
         </div> <!-- card -->
