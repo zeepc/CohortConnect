@@ -6,7 +6,9 @@ body {
   font-size: 13px;
   line-height: 18px;
 }
-
+a{
+  color: #55B7A5;
+}
 p, ol, ul, td {
   font-family: Open Sans;
   font-size: 13px;
@@ -99,5 +101,12 @@ div {
 }
 .section {
   padding: 70px 0;
+  position: relative;
+}
+
+.main-footer{
+  background-color: #505050;
+  color: #fff;
+  font-size: 12px;
   position: relative;
 }

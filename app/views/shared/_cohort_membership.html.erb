@@ -1,6 +1,6 @@
 <div class="col-7 cohorts">
+	<div class=" card-header">CONNECTED COHORTS</div>
     <ul class="list-group">
-    	<li class="list-group-item">CONNECTED COHORTS</li>
     	<% cohorts.each do |cohort| %>
   		<li class="list-group-item">
   			<span style="float: left;"><a href="/cohorts/<%= cohort.id%>"><%= cohort.name%></a></span>
@@ -8,5 +8,6 @@
   		</li>
   	<% end%>
 	</ul>
+	</div>
 </div>
 
