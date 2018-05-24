@@ -3,12 +3,13 @@ class CohortsController < ApplicationController
 
   before_action :bounce_if_not_logged_in, only: [:create, :update, :destroy]
   before_action :get_role_from_url, only: [:show, :update, :destroy], if: -> { current_user }
+  before_action :pending_requests, only: [:show], if: -> { current_user }
 
   # GET /cohorts/1
   # GET /cohorts/1.json
   def show
     @user = current_user
-    pending_requests()
+
 
     @cohort_id = params[:id]
     if cohort = Cohort.find_by_id(@cohort_id)
@@ -73,9 +74,13 @@ class CohortsController < ApplicationController
   #DELETE /cohorts/:cohort_id/user/:user_id/remove_user_from_cohort
   def remove_user_from_cohort
     # if passed user id belongs to current user or current user is admin of specified cohort
-    if params[:user_id] == current_user.id || get_role(params[:cohort_id], current_user.id) == "admin"
-      User.find(params[:user_id]).cohorts.delete(Cohort.find(params[:cohort_id]))
+    @user = User.find(params[:user_id])
+
+    if params[:user_id].to_i == current_user.id || get_role(params[:cohort_id], current_user.id) == "admin"
+      @user.cohorts.delete(Cohort.find(params[:cohort_id]))
     end
+
+    
   end
 
   #PUT /cohorts/:cohort_id/user/:user_id/add_user_to_admin

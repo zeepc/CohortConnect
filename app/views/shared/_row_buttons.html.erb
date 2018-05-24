@@ -1,12 +1,17 @@
  <div class="row m-0">
   <div class="container">
     <div class="col-md-12 modal_btn_wrapper">
+    <% if @user_role == "admin" %>
       <div class="modal_btn"><%= render partial: "/shared/email_all_modal"%></div>
       <div class="modal_btn"><%= render partial: "/shared/pending_modal", locals:{pending_requests: @pending_requests}%></div>
       <div class="modal_btn"><%= render partial: "/shared/invites_modal"%></div>
-      <div class="modal_btn"><button class="button text-uppercase" target="_blank" href="/">Join Cohort</button></div>
-      <div class="modal_btn"><%= link_to("Leave Cohort", request.original_url + "/user/#{user.id}/remove_user_from_cohort", remote: true, method: :delete, class:"button text-uppercase") %></div>
+    <% end %>
 
+    <% if @user_role %>
+      <div class="modal_btn"><%= link_to("Leave Cohort", request.original_url + "/user/#{user.id}/remove_user_from_cohort", remote: true, method: :delete, class:"button text-uppercase") %></div>
+    <% else %>
+      <div class="modal_btn"><%= render partial: "/shared/request_to_join_cohort"%></div>
+    <% end %>
 
 
     </div>

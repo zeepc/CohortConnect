@@ -1,0 +1,9 @@
+<% if current_user%>
+  <%= bootstrap_form_for GroupInvitation.new(), url: "/group_invitations", remote: true,  html: {class: "create-cohort"} do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id%>
+    <%= f.hidden_field :group_id, value: @cohort_id%>
+    <%= f.submit "Join Cohort" , class: "button text-uppercase"%>
+  <% end %>
+<% else %>
+  <%= link_to 'Join Cohort', '/users/auth/linkedin' %> 
+<% end %>
