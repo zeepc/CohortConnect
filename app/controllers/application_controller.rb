@@ -30,13 +30,9 @@ class ApplicationController < ActionController::Base
   end
 
   def create_invitation(options, email = "not an email")
-
     puts "entered create invitation"
-  
     @user_role = get_role(options[:group_id], current_user.id)
-
     user_id = options[:user_id] != nil ? options[:user_id] : User.find_by(email: email).id
-
 
     if @group_invitation = GroupInvitation.find_by(group_id: options[:group_id], user_id: user_id)
     else 
@@ -44,13 +40,13 @@ class ApplicationController < ActionController::Base
     end
 
     field_to_update = @user_role == "admin" ? :admin_approved? : :accepted? 
-
     if @group_invitation.update(field_to_update => true)
       puts "successfully created an invite to cohort #{options[:group_id]} for user #{user_id}"
     end
-
     puts @group_invitation.errors.full_messages
   end
+
+
 
   def process_invites(options)
     emails = process_email_list_for_invite(options[:emails])
@@ -64,7 +60,7 @@ class ApplicationController < ActionController::Base
       elsif user.cohorts.find_by_id(options[:group_id]) || user.group_invitations.find_by(user_id: user.id, group_id: options[:group_id])
         next
       end
-
+      
       create_invitation(options, email)
     end
   end

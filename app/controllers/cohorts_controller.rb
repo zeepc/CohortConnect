@@ -24,8 +24,6 @@ class CohortsController < ApplicationController
   # POST /cohorts.json
   def create
     @cohort = Cohort.new(name: cohort_params[:name], start_date: cohort_params[:start_date], end_date: cohort_params[:end_date], description: cohort_params[:description])
-    puts cohort_params
-    puts "444444"
     respond_to do |format|
       if @cohort.save
         CohortUser.create(cohort_id: @cohort.id, user_id: current_user.id, user_role: 'admin')
@@ -37,8 +35,6 @@ class CohortsController < ApplicationController
 
     if cohort_params[:emails].length > 1
       options = {group_id: @cohort.id, emails: cohort_params[:emails], sent_by_id: current_user.id}
-      puts "5555"
-      puts options.inspect
       process_invites(options)
     end
   end
@@ -97,7 +93,7 @@ class CohortsController < ApplicationController
 
     def pending_requests
       if is_admin?(params[:id], current_user.id)
-        @pending_users = User.joins(:group_invitations).where(group_invitations: {admin_approved?: false, group_id: params[:id]})
+        @pending_requests = User.joins(:group_invitations).where(group_invitations: {admin_approved?: false, group_id: params[:id]})
       end
     end
 

@@ -27,7 +27,7 @@ class GroupInvitationsController < ApplicationController
   # POST /group_invitations
   # POST /group_invitations.json
   def create
-    create_invitation(group_invitation_params[:email])
+    create_invitation(group_invitation_params, group_invitation_params[:email])
 
     respond_to do |format|
         format.js { puts "successfully created invite " }
@@ -55,10 +55,9 @@ class GroupInvitationsController < ApplicationController
     
   end
 
-  # DELETE /group_invitations/1
-  # DELETE /group_invitations/1.json
+  # DELETE /group_invitations
   def destroy
-    if group_invitation = GroupInvitation.find_by(user_id: group_invitation_params[:email], group_id: group_invitation_params[:cohort_id])
+    if group_invitation = GroupInvitation.find_by(user_id: group_invitation_params[:user_id], group_id: group_invitation_params[:group_id])
       group_invitation.destroy
 
       respond_to do |format|
