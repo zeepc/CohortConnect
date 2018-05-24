@@ -12,16 +12,17 @@
         </button>
       </div>
       <div class="modal-body">
-      
+      <% if @pending_requests%>
        <% @pending_users.each do |user|%>
         
-      <ul class="list-group">
-        <li class="list-group-item">
-        <%= image_tag (user.profile_image_link), :class => ("thumb_sm ") %>
-        <h5 class="name"><%= user.name%></h5>
-        </li>
-      </ul>
-    <% end %>
+          <ul class="list-group">
+            <li class="list-group-item">
+            <%= image_tag (user.profile_image_link), :class => ("thumb_sm ") %>
+            <h5 class="name"><%= user.name%></h5>
+            </li>
+          </ul>
+        <% end %>
+      <% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -1,6 +1,6 @@
 <div class="wrapper">
   <%= render "/shared/page_header_cohort" %>
-  <%= render  "/shared/row_buttons" %>
+  <%= render partial: "/shared/row_buttons", locals:{user: @user} %>
   <%= render "/shared/users_section" %>
 </div> <!-- wrapper -->
 
