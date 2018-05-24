@@ -12,21 +12,29 @@
         </button>
       </div>
       <div class="modal-body">
-      <% if @pending_requests%>
-       <% @pending_users.each do |user|%>
-        
+        <% if pending_requests%>
           <ul class="list-group">
-            <li class="list-group-item">
-            <%= image_tag (user.profile_image_link), :class => ("thumb_sm ") %>
-            <h5 class="name"><%= user.name%></h5>
-            </li>
+            <% pending_requests.each do |user|%>
+              <li class="list-group-item">
+                <%= image_tag (user.profile_image_link), :class => ("thumb_sm ") %>
+                <h5 class="name"><%= user.name%></h5>
+                <%= bootstrap_form_for GroupInvitation.new(), url: "/group_invitations", remote: true,  html: {class: "create-cohort"} do |f| %>
+                  <%= f.hidden_field :user_id, value: user.id%>
+                  <%= f.hidden_field :group_id, value: @cohort_id%>
+                  <%= f.submit "Accept" , class: "button text-uppercase"%>
+                <% end %>
+                <%= bootstrap_form_for GroupInvitation.new(), url: "/group_invitations", remote: true, method: "delete",  html: {class: "create-cohort"} do |f| %>
+                  <%= f.hidden_field :user_id, value: user.id%>
+                  <%= f.hidden_field :group_id, value: @cohort_id%>
+                  <%= f.submit "Deny" , class: "button text-uppercase"%>
+                <% end %>
+              </li> 
+            <% end %>
           </ul>
         <% end %>
-      <% end %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        
       </div>
     </div>
   </div>
