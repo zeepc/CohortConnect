@@ -8,7 +8,12 @@ class CohortsController < ApplicationController
   # GET /cohorts/1.json
   def show
     @user = current_user
+<<<<<<< HEAD
   
+=======
+    pending_requests()
+
+>>>>>>> master
     @cohort_id = params[:id]
     if cohort = Cohort.find_by_id(@cohort_id)
       @admins = User.joins(:cohort_users).where(cohort_users: {cohort_id: @cohort_id, user_role: "admin"}) 
@@ -88,20 +93,16 @@ class CohortsController < ApplicationController
     end
   end
 
-  #GET /cohorts/:id/pending_requests
-  def pending_requests
-    if is_admin?(params[:id], current_user.id)
-      @pending_requests = User.joins(:group_invitations).where(group_invitations: {admin_approved?: false, group_id: params[:id]})
-      @cohorts = []
-    end
-    render 'index'
-  end
-
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cohort
       @cohort = Cohort.find(params[:id])
+    end
+
+    def pending_requests
+      if is_admin?(params[:id], current_user.id)
+        @pending_users = User.joins(:group_invitations).where(group_invitations: {admin_approved?: false, group_id: params[:id]})
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,3 +1,11 @@
+.modal_btn {
+  display: inline-block;
+  padding: 10px;
+  button{
+    width: 215px;
+  }
+}
+
 .modal-title {
   margin-bottom: 0;
   line-height: 1.5;
@@ -11,4 +19,10 @@
     color: #505050;
     text-align: left;
 }
+}
+
+@media (min-width: 768px){
+  .modal_btn_wrapper{
+    text-align: right;
+  }
 }
