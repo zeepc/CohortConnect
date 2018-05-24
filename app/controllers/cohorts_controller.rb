@@ -8,12 +8,8 @@ class CohortsController < ApplicationController
   # GET /cohorts/1.json
   def show
     @user = current_user
-<<<<<<< HEAD
-  
-=======
     pending_requests()
 
->>>>>>> master
     @cohort_id = params[:id]
     if cohort = Cohort.find_by_id(@cohort_id)
       @admins = User.joins(:cohort_users).where(cohort_users: {cohort_id: @cohort_id, user_role: "admin"}) 
