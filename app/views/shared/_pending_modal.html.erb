@@ -1,17 +1,33 @@
-<!-- Button trigger modal -->
-<button class="button" data-toggle="modal" data-target="#exampleModalCenter">Pending</button>
+<button class="button text-uppercase" data-toggle="modal" data-target="#pendingModal" data-whatever="@mdo">Pending Requests</button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+
+
+<div class="modal fade" id="pendingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Edit Cohort</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Pending Requests</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+      <% if @pending_requests%>
+       <% @pending_users.each do |user|%>
         
+          <ul class="list-group">
+            <li class="list-group-item">
+            <%= image_tag (user.profile_image_link), :class => ("thumb_sm ") %>
+            <h5 class="name"><%= user.name%></h5>
+            </li>
+          </ul>
+        <% end %>
+      <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
   </div>
 </div>
