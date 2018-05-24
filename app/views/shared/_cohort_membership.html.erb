@@ -1,7 +1,7 @@
 <div class="col-7">
     <ul class="list-group">
     <li class="list-group-item">CONNECTED COHORTS</li>
-    <% @admin_cohorts.each do |cohort| %>
+    <% cohorts.each do |cohort| %>
   	<li class="list-group-item">
   		<span style="float: left;"><%= cohort.name%></span>
   		<span style="float: right;"><%= cohort.start_date%></span>
