@@ -10,7 +10,7 @@
 		</div>
 	  <div class="collapse navbar-collapse" data-color="orange">
 			<ul class="navbar-nav ml-auto">
-				<% if user_signed_in?%>
+				<% if current_user %>
 					<li class="nav-item">
 						<%= link_to("Back to Profile", '/users/profile', class:"nav-link fa fa-arrow-left") %>
 					</li>
