@@ -15,9 +15,9 @@
     <div class="content-lower container">
       <div class="right">
         <div class="date-description">
-          <p class="description text-white"><%= @cohort.start_date%></p>
+          <p class="description text-white"><%= @cohort.start_date.strftime("%B %d, %Y")%></p>
           <p class="hr-line"></p>
-          <p class="description text-white"><%= @cohort.end_date %></p>
+          <p class="description text-white"><%= @cohort.end_date.strftime("%B %d, %Y") %></p>
           <p class="description text-white edit"><%= render "/shared/edit_modal" %></p>
         </div>
       </div>

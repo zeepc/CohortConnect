@@ -1,20 +1,22 @@
-<div class=" col-5">
-	<div class="card-header row m-0">
-	<div class=" col-md-6 text-uppercase p-0">
+
+<div class=" col-4 scroller">
+	<div class="users-header row m-0">
+	<div class="col-md-6 text-uppercase p-0">
+    
 	My Cohorts
 	</div>
 		<div class="col-md-6 text-right">
-	<%= render "/shared/create_cohort_modal" %>
+			<%= render "/shared/create_cohort_modal" %>
+		</div>
 	</div>
-	</div>
-	<ul class="list-group">
+	<div class="list-group">
  		<% cohorts.each do |cohort| %>
-  	<li class="list-group-item">
-  		<span style="float: left;"><a href="/cohorts/<%= cohort.id%>"><%= cohort.name%></a></span>
-  		<span  style="float: right;"><%= cohort.start_date%></span>
-  	</li>
+  		<a href="/cohorts/<%= cohort.id%>" class="list-group-item list-group-item-action">
+  			<span style="float: left;"><%= cohort.name%></span>
+  			<span  style="float: right;"><%= cohort.start_date.strftime("%B %d, %Y")%></span>
+  		</a>
   	<% end%>
-	</ul>
+	</div>
 </div>
 
 
