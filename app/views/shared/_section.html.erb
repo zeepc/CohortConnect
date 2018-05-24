@@ -1,4 +1,4 @@
 <div class="section">
-  <%= render "/shared/admins_grid" %>
-  <%= render "/shared/students_grid" %>
+  <%= render partial: "/shared/users_grid",locals: {heading: "Admin", users: @admins} %>
+ <%= render partial: "/shared/users_grid",locals: {heading: "Students", users: @students} %>
 </div> <!-- section -->

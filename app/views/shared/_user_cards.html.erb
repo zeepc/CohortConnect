@@ -1,0 +1,16 @@
+<div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <div class="photo-container">
+              <%= image_tag (user.profile_image_link), :class => ("thumb_sm ") %>
+            </div>
+            <h5 class="name"><%= user.name%></h5>
+            <p class="location">
+              <%= user.location%>
+            </p>
+            <p class="profile">
+              <%= link_to("View Profile", user.profile_link, class:"btn text-uppercase", target:"_blank") %>
+            </p>
+          </div> <!-- card-body -->
+        </div> <!-- card -->
+      </div> <!-- col-md-4 -->
