@@ -1,13 +1,23 @@
-.absolute-top {
-  position: absolute !important;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1030;
-  
+.navbar{
+  transition: all 300ms ease 0s;
   .nav-link{
     font-family: Roboto, FontAwesome, sans-serif;
   }
 }
+.navbar-transparent{
+  background-color: transparent !important;
+  box-shadow: none;
+  padding-top: 20px;
+    a {
+      color: #fff;
+    }
+  }
+
+.bg-white{
+  a {
+    color: #505050;
+  }
+}
+
 
 

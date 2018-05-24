@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button class="create fa fa-plus-square-o fa-lg" data-toggle="modal" data-target="#exampleModalCenter"></button>
+<button class=" fa fa-plus-square-o fa-lg bg-transparent border-0" data-toggle="modal" data-target="#exampleModalCenter"></button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -13,17 +13,13 @@
       </div>
       <div class="modal-body">
         <%= bootstrap_form_for Cohort.new(), url: "/cohorts", remote: true,  html: {class: "create-cohort"} do |f| %>
-          <%= f.label :name%>
           <%= f.text_field :name%>
-          <%= f.label :start_date%>
           <%= f.date_field :start_date, value: Date.today%>
-          <%= f.label :end_date%>
           <%= f.date_field :end_date, value: Date.today%>
-          <%= f.label :description%>
           <%= f.text_field :description%>
       </div>
       <div class="modal-footer">
-        <%= f.submit "save cohort" , class: "btn btn-primary text-uppercase"%>
+        <%= f.submit "save cohort" , class: "button text-uppercase"%>
       </div>
     </div>
     <%end%>
