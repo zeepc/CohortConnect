@@ -1,13 +1,11 @@
-<div class=" col-4 sidebar">
-	<div class="create-header row m-0">
-		<div class="clearfix">
-			<div class="float-left">
-			<h5>MY COHORTS</h5>
-		</div>
-			<div class="float-right">
-			<%= render "/shared/create_cohort_modal" %>
-		</div>
-		</div>
+<div class=" col-4">
+	<div class="users-header row m-0">
+	<div class="col-md-6 text-uppercase p-0">
+	My Cohorts
+	</div>
+		<div class="col-md-6 text-right">
+	<%= render "/shared/create_cohort_modal" %>
+	</div>
 	</div>
 	<ul class="list-group">
  		<% cohorts.each do |cohort| %>

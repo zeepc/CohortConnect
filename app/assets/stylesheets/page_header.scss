@@ -1,14 +1,3 @@
-.navbar-transparent{
-  background: transparent;
-  a{
-    color: #fff;
-  }
-}
-
-.nav-link{
-  font-family: Roboto, FontAwesome, sans-serif;
-
-}
 .page-header[filter-color="green"] {
   background-image: image-url('login_bk.jpg');
 }
@@ -66,7 +55,7 @@
         position: absolute;
         right: 0;
         top: 0;
-        transform: translate(-15px, 25px);
+        transform: translate(0, 25px);
     }
 
     .edit{
@@ -78,38 +67,12 @@
       cursor: pointer;
     }
 
-    .modal-title {
-      margin-bottom: 0;
-      line-height: 1.5;
-      color: #505050;
-      text-transform: uppercase;
-      font-size: 18px;
-      
-      label{
-        display: block;
-        margin-bottom: .5rem;
-        color: #505050;
-        text-align: left;
-    }
-  }
+    
   .social-description {
     display: inline-block;
     text-align: center;
     margin: 15px 0 0px;
   }
-  .btn {
-    background-color: transparent;
-    border: 2px solid #55B7A5;
-    border-radius: 0;
-    font-size: 12px;
-    font-family: Open Sans, sans-serif;
-    font-weight: 600;
-    color: #666;
-    padding: .8em 4em;
-      &:hover{
-        background-color: #55B7A5;
-        color: #fff;
-      }
-  }
+  
 }
 }

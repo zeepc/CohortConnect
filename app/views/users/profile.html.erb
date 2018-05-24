@@ -6,7 +6,8 @@
     <%= render partial: 'shared/profile_sidebar', locals: {cohorts: @admin_cohorts} %>
     <%= render partial: 'shared/cohort_membership', locals: {cohorts: @all_cohorts} %>
   </div>
-
- <button class="btn btn-outline-primary"><%= link_to 'Delete My Account',  "/users/profile",
-   data: { confirm: 'Are you sure?' }, method: :delete, remote: true %></button>
+  <div class="row m-0 pt-3">
+    <%= link_to 'Delete My Account',  "/users/profile",class:"button text-uppercase", data: { confirm: 'Are you sure?' }, method: :delete, remote: true %>
+  
+  </div>
 </div>
