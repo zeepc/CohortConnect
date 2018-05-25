@@ -20,6 +20,9 @@ button,
       color: #fff;
     }
 }
+.sm{
+  padding:.8em 1.5em;
+}
 button:focus {
   outline: none !important;
   
@@ -49,6 +52,7 @@ button:focus {
   }
 }
 
+.deny,
 .remove{
   .minus{
     font-family: 'FontAwesome', 'Open Sans';

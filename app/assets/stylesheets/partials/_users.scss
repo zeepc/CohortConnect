@@ -42,3 +42,22 @@
     text-decoration: none;
     background-color: #ced8d8 !important;
 }
+.list-group-item {
+span{
+    display: inline-block;
+}
+.photo-container{
+    width: 60px;
+    height: 60px;
+}
+.info {
+    position: absolute;
+    top: 3.5em;
+    li{
+        display: inline-block;
+        padding: 0 6px;
+        text-transform: uppercase;
+    }
+}
+
+}
