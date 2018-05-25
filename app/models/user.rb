@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: %i[linkedin]
 
-  has_many :cohort_users
+  has_many :cohort_users, dependent: :destroy
   has_many :cohorts, through: :cohort_users
 
   has_many :group_invitations
