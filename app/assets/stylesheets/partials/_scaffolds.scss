@@ -7,7 +7,7 @@ body {
   line-height: 18px;
 }
 a{
-  color: #55B7A5;
+  color: $main;
 }
 p, ol, ul, td {
   font-family: Open Sans;
@@ -74,7 +74,7 @@ div {
 .form-group{
   label {
     display: block;
-    color: #505050;
+    color: $main-font-color;
     text-align: left;
     font-size: 12px;
     text-transform: uppercase;
@@ -86,14 +86,14 @@ div {
 .profile{
    .btn {
     background-color: transparent;
-    border: 2px solid #55B7A5;
+    border: 2px solid $main;
     border-radius: 0;
     font-size: 12px;
     font-family: Open Sans, sans-serif;
     font-weight: 600;
     color: #666;
       &:hover{
-        background-color: #55B7A5;
+        background-color: $main;
         color: #fff;
       }
    }
@@ -105,7 +105,7 @@ div {
 }
 
 .main-footer{
-  background-color: #505050;
+  background-color: $main-font-color;
   color: #fff;
   font-size: 12px;
   position: relative;
