@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :bounce_if_not_logged_in, only: [:home, :destroy, :profile]
   before_action :set_user, only: [:update, :destroy, :profile]
+  before_action :pending_invites, only: [:profile]
   
 
   # PATCH/PUT /users/1
@@ -45,6 +46,13 @@ class UsersController < ApplicationController
   def profile
     @all_cohorts = @user.cohorts.all
     @admin_cohorts = Cohort.joins(:cohort_users).where(cohort_users: {user_id: current_user.id, user_role: "admin"})
+  end
+
+  def pending_invites
+    if current_user.id
+      @pending_invites = GroupInvitation.where(accepted?: false, user_id: current_user.id)
+      # @pending_invites = User.joins(:group_invitations).where(group_invitations: {accepted?: false, user_id: current_user.id})
+    end
   end
 
   private
