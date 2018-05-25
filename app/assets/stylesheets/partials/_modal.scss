@@ -1,17 +1,21 @@
-.modal_btn {
-  display: inline-block;
-  padding: 10px;
-  button,
-  .button{
-    width: 215px;
-    padding: .8em 5.2em;
-    white-space: nowrap;
-  }
-  .close{
-    text-align: right;
+.modal_btn_wrapper{
+  padding-top: 2em;
+text-align: center;
+  .modal_btn {
+    display: inline-block;
+    padding: 10px;
+    button,
+    .button{
+      width: 215px;
+      padding: .8em 5.2em;
+      white-space: nowrap;
+    }
+    .close{
+      text-align: right;
+      padding: 1rem !important;
+    }
   }
 }
-
 .modal-title {
   margin-bottom: 0;
   line-height: 1.5;
@@ -27,8 +31,3 @@
 }
 }
 
-@media (min-width: 768px){
-  .modal_btn_wrapper{
-    text-align: right;
-  }
-}

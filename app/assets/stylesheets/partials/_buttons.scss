@@ -1,3 +1,4 @@
+
 button,
 .button{
   cursor: pointer;
@@ -75,4 +76,10 @@ button:focus {
   display: inline-block;
   padding: 0 12px 0 17px;
   position: relative;
+}
+
+@media (min-width: 768px){
+  .modal_btn_wrapper{
+    text-align: right;
+  }
 }
