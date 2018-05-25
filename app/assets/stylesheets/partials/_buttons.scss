@@ -5,7 +5,7 @@ button,
 
 .button {
   background-color: transparent;
-  border: 2px solid #55B7A5;
+  border: 2px solid $main;
   border-radius: 0;
   font-size: 12px;
   font-family: Open Sans, sans-serif;
@@ -15,7 +15,7 @@ button,
   outline: none;
   border-radius: 5px;
     &:hover{
-      background-color: #55B7A5;
+      background-color: $main;
       color: #fff;
     }
 }

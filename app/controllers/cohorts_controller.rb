@@ -80,6 +80,9 @@ class CohortsController < ApplicationController
       @user.cohorts.delete(Cohort.find(params[:cohort_id]))
     end
 
+    if params[:user_id].to_i == current_user.id
+      redirect_to '/users/profile'
+    end
     
   end
 
