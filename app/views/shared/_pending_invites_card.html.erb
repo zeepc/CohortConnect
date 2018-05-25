@@ -8,20 +8,32 @@
           <ul class="list-group">
             <% pending_invites.each do |invite|%>
               <li class="list-group-item">
-                <p><%= Cohort.find_by_id(invite.group_id).name%></p>
+                <h6><%= Cohort.find_by_id(invite.group_id).name%></h6>
                 <% sent_by = User.find_by_id(invite.sent_by_id)%>
-                <%= image_tag (sent_by.profile_image_link), :class => ("thumb_sm ") %>
-                <h5 class="name"><%= sent_by.name%></h5>
-                <%= bootstrap_form_for GroupInvitation.new(), url: "/group_invitations", remote: true,  html: {class: "create-cohort"} do |f| %>
-                  <%= f.hidden_field :user_id, value: invite.user.id%>
-                  <%= f.hidden_field :group_id, value: invite.group_id%>
-                  <%= f.submit "Accept" , class: "button text-uppercase"%>
-                <% end %>
-                <%= bootstrap_form_for GroupInvitation.new(), url: "/group_invitations", remote: true, method: "delete",  html: {class: "create-cohort"} do |f| %>
-                  <%= f.hidden_field :user_id, value: invite.user_id%>
-                  <%= f.hidden_field :group_id, value: invite.group_id%>
-                  <%= f.submit "Deny" , class: "button text-uppercase"%>
-                <% end %>
+                <span> 
+                <div class="photo-container">
+                <%= image_tag (sent_by.profile_image_link), :class => ("thumb_list ") %>
+                </div>
+                </span>
+                <span class="info">
+                  <ul>
+                  <li><%= sent_by.name%></span></li>
+                  <li class="accept">
+                    <%= bootstrap_form_for GroupInvitation.new(), url: "/group_invitations", remote: true,  html: {class: "create-cohort"} do |f| %>
+                      <%= f.hidden_field :user_id, value: invite.user.id%>
+                      <%= f.hidden_field :group_id, value: invite.group_id%>
+                      <%= f.submit "Accept" , class: "button sm text-uppercase"%>
+                    <% end %>
+                  </li>
+                  <li class="deny">
+                  <%= bootstrap_form_for GroupInvitation.new(), url: "/group_invitations", remote: true, method: "delete",  html: {class: "create-cohort"} do |f| %>
+                    <%= f.hidden_field :user_id, value: invite.user_id%>
+                    <%= f.hidden_field :group_id, value: invite.group_id%>
+                    <%= f.submit "Deny" , class: " button sm text-uppercase"%>
+                  <% end %>
+                  </li>
+                  </ul>
+                </span>
               </li> 
             <% end %>
           </ul>
