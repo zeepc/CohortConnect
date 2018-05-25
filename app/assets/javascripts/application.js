@@ -18,10 +18,3 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-
-
-$(document).ready(function(){
-  $("#modal_btn").click(function(){
-      $('.modal, .modal-backdrop').hide();
-  });
-})
