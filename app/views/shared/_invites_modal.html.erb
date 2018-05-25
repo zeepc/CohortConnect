@@ -18,7 +18,7 @@
         <%= f.hidden_field :sent_by_id, value: current_user.id%>
       </div>
       <div class="modal-footer">
-        <%= f.submit "Invite" , class: "button text-uppercase"%>
+        <%= f.submit "Invite", id: 'modal_btn', class: "button text-uppercase" %>
       </div>
         <% end %>
     </div>

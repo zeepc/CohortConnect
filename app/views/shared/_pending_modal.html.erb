@@ -21,12 +21,12 @@
                 <%= bootstrap_form_for GroupInvitation.new(), url: "/group_invitations", remote: true,  html: {class: "create-cohort"} do |f| %>
                   <%= f.hidden_field :user_id, value: user.id%>
                   <%= f.hidden_field :group_id, value: @cohort_id%>
-                  <%= f.submit "Accept" , class: "button text-uppercase"%>
+                  <%= f.submit "Accept", id: 'modal_btn', class: "button text-uppercase"%>
                 <% end %>
                 <%= bootstrap_form_for GroupInvitation.new(), url: "/group_invitations", remote: true, method: "delete",  html: {class: "create-cohort"} do |f| %>
                   <%= f.hidden_field :user_id, value: user.id%>
                   <%= f.hidden_field :group_id, value: @cohort_id%>
-                  <%= f.submit "Deny" , class: "button text-uppercase"%>
+                  <%= f.submit "Deny", id: 'modal_btn', class: "button text-uppercase"%>
                 <% end %>
               </li> 
             <% end %>
