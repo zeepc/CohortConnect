@@ -1,5 +1,8 @@
-console.log("connected2")
+console.log("connected");
 
-$(document).ready(function(){
 
+$(document).on('turbolinks:load', function(){
+  $(".button").click(function(){
+      $('.modal, .modal-backdrop').hide();	
+  });
 })
