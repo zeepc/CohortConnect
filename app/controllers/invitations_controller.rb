@@ -5,7 +5,7 @@ class InvitationsController < Devise::InvitationsController
   def edit
     if params[:invitation_token] && self.resource = resource_class.find_by_invitation_token(params[:invitation_token], true)
       session[:invitation_token] = params[:invitation_token]
-      redirect_to '/users/profile'
+      redirect_to '/users/auth/linkedin'
     else
       set_flash_message(:alert, :invitation_token_invalid)
       redirect_to after_sign_out_path_for(resource_name)
