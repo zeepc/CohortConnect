@@ -22,6 +22,13 @@
 }
 
 .scroller{
-	height: 300px;
+	height: 190px;
 	overflow-y: scroll;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.list-group-item-action:focus, .list-group-item-action:hover {
+    color: #fff !important;
+    text-decoration: none;
+    background-color: #ced8d8 !important;
 }
