@@ -1,4 +1,4 @@
-<div class="col-7 summary">
+<div class="col-md-7 summary">
 <div class="card">
   <div class="card-header text-uppercase">
     Pending Invitations
@@ -26,8 +26,9 @@
             <% end %>
           </ul>
         <% else %>
-        <h2>No new invites</h2>
+        <p>No new invites</p>
         <% end %>
   </div>
 </div>
+<%= render partial: 'shared/cohort_membership', locals: {cohorts: @all_cohorts} %>
 </div>
