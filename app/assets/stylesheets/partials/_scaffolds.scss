@@ -6,8 +6,14 @@ body {
   font-size: 13px;
   line-height: 18px;
 }
+
+
+
 a{
-  color: $main;
+  color: #55B7A5;
+  &:hover{
+    color: #55B7A5 ;
+  }
 }
 p, ol, ul, td {
   font-family: Open Sans;

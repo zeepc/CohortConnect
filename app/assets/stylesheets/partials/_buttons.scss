@@ -21,9 +21,58 @@ button,
 }
 button:focus {
   outline: none !important;
+  
+}
+.add_admin{
+  .square{
+    font-family: 'FontAwesome', 'Open Sans';
+    color: #505050;
+    outline: none;
+    &:hover{
+      text-decoration: none;
+      
+    }
+    &::before{
+      content:"\f096";
+      padding-right: 7px;
+      position: absolute;
+      left: 0;
+      top: 1px;
+    }
+    &:hover::before,
+    &:focus::before{
+      content:"\f14a";
+      color: #55B7A5;
+      text-decoration: none;
+    }
+  }
 }
 
-.pending-request-counter{
-  color: $red;
+.remove{
+  .minus{
+    font-family: 'FontAwesome', 'Open Sans';
+    color: #505050;
+    outline: none;
+    &:hover{
+      text-decoration: none;
+    }
+    &::before{
+      content:"\f056";
+      padding-right: 7px;
+      position: absolute;
+      left: 0;
+    }
+    &:hover::before,
+    &:focus::before{
+      content:"\f056";
+      color: #b51b1b;
+      text-decoration: none;
+    }
+  }
 }
-
+.add_admin,
+.remove{
+  display: inline-block;
+  padding: 0 12px 0 17px;
+  position: relative;
+}
