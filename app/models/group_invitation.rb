@@ -3,10 +3,13 @@ class GroupInvitation < ApplicationRecord
 
   after_save :check_for_acceptance
 
+  devise :authenticatable
+
   attr_accessor :emails
 
 
   private
+
   #checks to see if the invitation was accepted and admin approved.
   #if it is, then create a link between user and specified cohort and delete the completed invitation.
   # otherwise do nothing.
