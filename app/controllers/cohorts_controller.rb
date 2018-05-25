@@ -88,6 +88,7 @@ class CohortsController < ApplicationController
 
   #PUT /cohorts/:cohort_id/user/:user_id/add_user_to_admin
   def add_user_to_admin
+    @cohort_id = params[:cohort_id]
     if is_admin?(params[:cohort_id], current_user.id)
       CohortUser.find_by(cohort_id: params[:cohort_id], user_id: params[:user_id]).update(user_role: 'admin')
     end

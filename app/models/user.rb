@@ -47,6 +47,11 @@ class User < ApplicationRecord
     def name
       "#{first_name} #{last_name}"
   end
+
+  # def send_email(email_method, options = {})
+  #   puts "8888888888"
+  #   send_devise_notification(email_method, options)
+  # end
   
   
 end
