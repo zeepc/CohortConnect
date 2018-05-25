@@ -3,7 +3,10 @@
     <div class="col-md-12 modal_btn_wrapper">
     <% if @user_role == "admin" %>
       <div class="modal_btn"><%= render partial: "/shared/email_all_modal"%></div>
-      <div class="modal_btn"><%= render partial: "/shared/pending_modal", locals:{pending_requests: @pending_requests}%></div>
+
+      <% if @pending_requests.length > 0 %>
+        <div class="modal_btn"><%= render partial: "/shared/pending_modal", locals:{pending_requests: @pending_requests}%></div>
+      <% end %>
       <div class="modal_btn"><%= render partial: "/shared/invites_modal"%></div>
     <% end %>
 

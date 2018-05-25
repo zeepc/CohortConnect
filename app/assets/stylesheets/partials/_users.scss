@@ -13,6 +13,13 @@
     border: none !important;
 }
 
+.card-grid:hover{
+    *{
+        transition: all .2s ease-out;
+        transform: scale(1.03);
+    }
+}
+
 .card-body,
 .card-header{
     border: 1px solid rgba(0, 0, 0, 0.125);
