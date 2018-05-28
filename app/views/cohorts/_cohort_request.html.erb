@@ -1,0 +1,18 @@
+<% if current_user%>
+
+  <%= form_for GroupInvitation.new(), :url => '/invites' do |form| %>
+      <div class="field">
+        <%= form.label :emails %>
+        <%= form.text_area :emails %>
+      </div>
+
+      <div class="field">
+        <%= form.label :group_id %>
+        <%= form.hidden_field :group_id, value: @cohort_id%>
+      </div>
+
+      <div class="actions">
+        <%= form.submit "submit multiple emails"%>
+      </div>
+  <%end%>
+<% end %>

@@ -1,0 +1,38 @@
+.navbar{
+  transition: all 300ms ease 0s;
+  .nav-link{
+    font-family: Roboto, FontAwesome, sans-serif;
+    font-size: 16px;
+  }
+}
+.navbar-transparent{
+  background-color: transparent !important;
+  box-shadow: none;
+  padding-top: 20px;
+    a{color: #fff;
+      &:hover{
+        color: #55B7A5 ;
+      }
+    }
+    .navbar-brand {
+      background-image: image-url('logo.png');
+      text-indent: -100%;
+      overflow-x: hidden;
+      background-size: 150px;
+      background-repeat: no-repeat;
+      width: 150px;
+      height: 60px;
+    }
+    img{
+      width: 150px;
+    }
+  }
+
+.bg-white{
+  a {
+    color: $main-font-color;
+  }
+  .navbar-brand {
+    background-image: image-url('logo_cl.png');
+  }
+}

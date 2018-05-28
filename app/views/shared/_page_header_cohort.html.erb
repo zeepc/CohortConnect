@@ -1,0 +1,30 @@
+<div class="page-header page-header-small" filter-color="green">
+  <div class="page-header-image">
+  </div>
+  <div class="row m-0">
+    <div class="content-center col-md-7">
+      <h3 class="title"><%= @cohort.name%></h3>
+      <div class="content">
+        <div class="social-description">
+          <p class="description text-white"><%= @cohort.description%></p>
+        </div>
+      </div>
+    </div>
+  </div> <!-- row1-cohort-info -->
+  <div class="row m-0">
+    <div class="content-lower container">
+      <div class="right">
+        <div class="date-description">
+          <p class="description text-white"><%= @cohort.start_date.strftime("%B %d, %Y")%></p>
+          <p class="hr-line"></p>
+          <p class="description text-white"><%= @cohort.end_date.strftime("%B %d, %Y") %></p>
+          <% if @user_role == "admin"%>
+            <p class="description text-white edit"><%= render "/shared/edit_modal" %></p>
+          <% end %>
+        </div>
+      </div>
+        
+      </div>
+    </div>
+  </div> <!-- row2-lower --> 
+</div>

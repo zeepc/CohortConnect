@@ -1,0 +1,89 @@
+
+button,
+.button{
+  cursor: pointer;
+}
+
+.button {
+  background-color: transparent;
+  border: 2px solid $main;
+  border-radius: 0;
+  font-size: 12px;
+  font-family: Open Sans, sans-serif;
+  font-weight: 600;
+  color: #666;
+  padding: .8em 4em;
+  outline: none;
+  border-radius: 5px;
+    &:hover{
+      background-color: $main;
+      color: #fff;
+    }
+}
+.sm{
+  padding:.8em 1.5em;
+}
+button:focus {
+  outline: none !important;
+  
+}
+.add_admin{
+  .square{
+    font-family: 'FontAwesome', 'Open Sans';
+    color: #505050;
+    outline: none;
+    &:hover{
+      text-decoration: none;
+      
+    }
+    &::before{
+      content:"\f096";
+      padding-right: 7px;
+      position: absolute;
+      left: 0;
+      top: 1px;
+    }
+    &:hover::before,
+    &:focus::before{
+      content:"\f14a";
+      color: #55B7A5;
+      text-decoration: none;
+    }
+  }
+}
+
+.deny,
+.remove{
+  .minus{
+    font-family: 'FontAwesome', 'Open Sans';
+    color: #505050;
+    outline: none;
+    &:hover{
+      text-decoration: none;
+    }
+    &::before{
+      content:"\f056";
+      padding-right: 7px;
+      position: absolute;
+      left: 0;
+    }
+    &:hover::before,
+    &:focus::before{
+      content:"\f056";
+      color: #b51b1b;
+      text-decoration: none;
+    }
+  }
+}
+.add_admin,
+.remove{
+  display: inline-block;
+  padding: 0 12px 0 17px;
+  position: relative;
+}
+
+@media (min-width: 768px){
+  .modal_btn_wrapper{
+    text-align: right;
+  }
+}

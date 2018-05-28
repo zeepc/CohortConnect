@@ -1,0 +1,33 @@
+.modal_btn_wrapper{
+  padding-top: 2em;
+text-align: center;
+  .modal_btn {
+    display: inline-block;
+    padding: 10px;
+    button,
+    .button{
+      width: 215px;
+      padding: .8em 5.2em;
+      white-space: nowrap;
+    }
+    .close{
+      text-align: right;
+      padding: 1rem !important;
+    }
+  }
+}
+.modal-title {
+  margin-bottom: 0;
+  line-height: 1.5;
+  color: $main-font-color;
+  text-transform: uppercase;
+  font-size: 18px;
+  
+  label{
+    display: block;
+    margin-bottom: .5rem;
+    color: $main-font-color;
+    text-align: left;
+}
+}
+

@@ -1,0 +1,63 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.card-header {
+	font-family: Roboto;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(166, 188, 188, 0.36) !important;
+    box-shadow: none;
+    font-weight: 400;
+}
+.card{
+    border: none !important;
+}
+
+.card-grid:hover{
+    *{
+        transition: all .2s ease-out;
+        transform: scale(1.03);
+    }
+}
+
+.card-body,
+.card-header{
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+.summary, .cohorts {
+	margin-bottom: 3%;
+}
+
+.scroller{
+	height: 190px;
+	overflow-y: scroll;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.list-group-item-action:focus, .list-group-item-action:hover {
+    color: #fff !important;
+    text-decoration: none;
+    background-color: #ced8d8 !important;
+}
+.list-group-item {
+span{
+    display: inline-block;
+}
+.photo-container{
+    width: 60px;
+    height: 60px;
+}
+.info {
+    position: absolute;
+    top: 3.5em;
+    li{
+        display: inline-block;
+        padding: 0 6px;
+        text-transform: uppercase;
+    }
+}
+
+}

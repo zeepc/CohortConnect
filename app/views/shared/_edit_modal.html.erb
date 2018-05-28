@@ -1,0 +1,25 @@
+<button type="button" class="edit fa fa-edit" data-toggle="modal" data-target="#editModal" data-whatever="@mdo"></button>
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Cohort</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= bootstrap_form_for @cohort, url: request.original_url, remote: true, method: "put",   html: {class: "edit-cohort"} do |f| %>
+          <%= f.text_field :name%>
+          <%= f.date_field :start_date%>
+          <%= f.date_field :end_date%>
+          <%= f.text_area :description, rows: "3"%>
+      </div>
+      <div class="modal-footer">
+         <%= f.submit "Update", id: 'modal_btn', class: "button text-uppercase" %>
+      </div>
+    </div>
+    <%end%>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+console.log("hit3")
+url = "/cohorts/<%= @cohort_id %>"
+console.log(url)
+
+$(".section > .container").load( url + " .section > .container")

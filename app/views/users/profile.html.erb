@@ -1,0 +1,13 @@
+<%= render "/shared/page_header_user" %>
+
+<div class="container">
+  <div class="row mt-5">
+    <%= render partial: "shared/pending_invites_card", locals:{pending_invites: @pending_invites} %>
+    <%= render partial: 'shared/profile_sidebar', locals: {cohorts: @admin_cohorts} %>
+  </div>
+      <div class="row m-0 pb-5 pt-5">
+    <%= link_to 'Delete My Account',  "/users/profile",class:"button text-uppercase", data: { confirm: 'Are you sure?' }, method: :delete, remote: true %>
+  
+  </div>
+  
+</div>
