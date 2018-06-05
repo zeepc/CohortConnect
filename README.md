@@ -58,7 +58,7 @@ They can accept the in-app invite to be added to your cohort.
   <img style="width: 30%; height: auto;" src='./readme_images/inviteToCohortVideo.png'>
 <a>
 
-##Sign Up with OAuth2.0
+## Sign Up with OAuth2.0
 
 Account creating via OAuto2 for linked in.
 
