@@ -31,6 +31,11 @@ install dependencies
 ```
 bundle install
 ```
+create the database and migrate
+```
+rake db:create
+rake db:migrate
+```
 
 start the rails server
 ```
