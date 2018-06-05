@@ -2,6 +2,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def linkedin
     # You need to implement the method below in your model (e.g. app/models/user.rb)
     auth = request.env["omniauth.auth"]
+    puts "$$$$$$$$$"
+    puts request.env['omniauth.auth']['credentials']
     identity = User.where(provider: auth.provider, uid: auth.uid).first
     
     

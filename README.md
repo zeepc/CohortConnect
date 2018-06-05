@@ -39,7 +39,8 @@ rails s
 
 Go to browser and navigate to localhost:3000 and the site should be live. 
 
-
+## Inviting Users to CohortConnect
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MxqPeF9QiHw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 
 ## Built With
