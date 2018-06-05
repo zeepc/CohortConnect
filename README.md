@@ -40,8 +40,14 @@ rails s
 Go to browser and navigate to localhost:3000 and the site should be live. 
 
 ## Inviting Users to CohortConnect
-<iframe width="560" height="315" src="https://www.youtube.com/embed/MxqPeF9QiHw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<a target="blank" href="https://www.youtube.com/watch?v=MxqPeF9QiHw">
+  <img src='./readme_images/inviteToCohortVideo.png'>
+<a>
 
+##Sign Up with OAuth2.0
+<a target="blank" href="https://www.youtube.com/watch?v=IJXcvPobqkQ">
+  <img src='./readme_images/signup.png.png'>
+<a>
 
 ## Built With
 
