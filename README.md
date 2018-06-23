@@ -31,6 +31,11 @@ install dependencies
 ```
 bundle install
 ```
+create the database and migrate
+```
+rake db:create
+rake db:migrate
+```
 
 start the rails server
 ```
@@ -39,8 +44,34 @@ rails s
 
 Go to browser and navigate to localhost:3000 and the site should be live. 
 
+## Inviting Users to CohortConnect
+When you create a cohort, you can enter in a comma separated list of email addresses for the people you want to join your cohort.
 
+If their email exists in our database, their account receives an in-app invite to your cohort.
 
+In this case, the email is not present in our database.
+
+We create a placeholder account with that email address and an in-app invite linked to it. We also attach an invitation token. We then send an email to that email address with a link to claim their account. 
+
+When they click that link, we verify that the attached invitation token is the one initially created for the placeholder account. When they allow linkedin, we populate the rest of their account information as normal.
+
+Because the in-app invitation to your cohort was placed on the account when it was still a placeholder, the new user still have access to it.
+
+They can accept the in-app invite to be added to your cohort.
+
+<a target="_blank" href="https://www.youtube.com/watch?v=MxqPeF9QiHw">
+  <img style="width: 30%; height: auto;" src='./readme_images/inviteToCohortVideo.png'>
+<a>
+
+## Sign Up with OAuth2.0
+
+Account creating via OAuto2 for linked in.
+
+By allowing CohortConnect to Access your Linkedin profile, we automatically create an account for you with all your linkedin info.
+
+<a  target="_blank" href="https://www.youtube.com/watch?v=IJXcvPobqkQ">
+  <img style="width: 30%; height: auto;" src='./readme_images/signup.png'>
+<a>
 
 ## Built With
 

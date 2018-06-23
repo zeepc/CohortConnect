@@ -8,12 +8,9 @@ class User < ApplicationRecord
 
   has_many :cohort_users, dependent: :destroy
   has_many :cohorts, through: :cohort_users
-
   has_many :group_invitations
 
-  
   def from_omniauth(auth)
-    
     self.email = auth.info.email
     self.provider = auth.provider
     self.uid = auth.uid
